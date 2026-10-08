@@ -1,0 +1,9 @@
+{
+  "title": "A proof of the Auluck-Chowla-Gupta Conjecture: paper and verification code",
+  "upload_type": "software",
+  "description": "<p>Paper and complete reproducible verification code for a proof that, for every n &ge; 1, the sequence p(n,1), ..., p(n,n) of partitions of n into exactly k parts is unimodal (the Auluck&ndash;Chowla&ndash;Gupta conjecture, 1942; Szekeres 1953 proved it for sufficiently large n without an explicit threshold). The analytic part (n &ge; 10^5) is certified in Arb ball arithmetic; the finite part (n &le; 2&middot;10^5) is verified by two independent programs, one using exact integer arithmetic only. Run <code>./run_all.sh</code> to reproduce.</p>",
+  "creators": [{"name": "Padhi, Jaideep Sai", "affiliation": "Purdue University"}],
+  "license": "MIT",
+  "keywords": ["integer partitions", "unimodality", "Auluck-Chowla-Gupta conjecture", "saddle point method", "computer-assisted proof", "interval arithmetic"],
+  "related_identifiers": [{"identifier": "https://github.com/jaideepsaipadhi/the-auluck-chowla-gupta-conjecture", "relation": "isSupplementTo", "scheme": "url"}]
+}
