@@ -65,7 +65,7 @@ Ties are allowed: the claim is weak unimodality.
 | CL-b margin | 5.8206 | > 1 | ws_cd_CLb, ws_mech_cd |
 | CL-a ρ | 0.0673 (ws_mech_cla) / 0.161 | < 0.8977 | ws_mech_cla, ws_cd_CLa |
 | CR | 0.3851 | < 1 | — |
-| D, Ψ(s_A) | 0.305 | > 0 | — |
+| D, Ψ(s_A) | 0.30456 | > 0, Ψ increasing (exact Ψ′) | ws_cd_D, ws_close_D |
 
 **Finite check**
 - PASS for every n ≤ 200 000, with 0 violations.
@@ -98,6 +98,9 @@ python3 ws_cd_D.py > ws_cd_D.out
 python3 ws_mech_cd.py 100000 > ws_mech_cd.out
 python3 ws_mech_cla.py 47 0.1 > ws_mech_cla.out
 python3 ws_mech_mono.py > ws_mech_mono.out
+# closure pass (PROOFS_FULL.md; total ~1 min)
+python3 ws_close_rep.py > ws_close_rep.out; python3 ws_close_D.py > ws_close_D.out
+python3 ws_close_elem.py > ws_close_elem.out; python3 ws_close_thresh.py expected ../notes/FiniteCheckExact.md > ws_close_thresh.out   # in the repo: reads expected/ (run_all.sh passes actual/)
 # audits / sanity (non-essential)
 python3 ws_b_minorM.py 0.0042 3.0; python3 ws_b_check.py 100000 1210 1358 1500; python3 ws_p12_eps.py 100000 1358
 # finite part (in fc/; ~8 min + ~10 min)
@@ -106,20 +109,36 @@ gcc -O2 -fopenmp -frounding-math -o ws_fc_check ws_fc_check.c -lm && ./ws_fc_che
 ```
 ws_p12_tv.py is retired: its TV method was invalid (REFEREE A.1). lemA_*.py, scan.py and the other early scripts are exploratory and are not part of the proof.
 
-## Not machine-checked (the remaining trust list)
-Every item below was audited by hand in REFEREE.md, and none is believed wrong. They are listed because a machine has not checked them.
+## Trust list (updated 2026-10-08, after the PROOFS_FULL.md pass)
+Items 1–8 of the previous list are closed. Each now has a complete written proof in **PROOFS_FULL.md** (no "clearly"; every inequality
+justified), and each has the machine checks listed below. The identities are exact sympy or rigorous Arb; the numerical checks are sanity tests of
+statements that are proved in writing.
 
-1. **LemmaA.md §1, representation (1)/(2):** R_k = Σ_s x^{1+sK}P(X = m−1−sK)/P(X = m) and R/g₀ − 1 = Ñ/D. This is a generating-function identity, spot-checked numerically only.
-2. **LemmaA.md §2, uniform derivative bounds:** |ψ^{(r)}| ≤ κ_r and |H^{(r)}| ≤ c_r for all real φ. The proof is termwise series. Only the values at φ = 0 are mechanized.
-3. **The [ELEM] one-liners in ws_mech_lemA.py:**
-   - Re ω ≤ κ₄t⁴/24 + κ₆t⁶/720;
-   - the three pieces of T_H: |H| ≤ c₁t, |e^z−1−z−z²/2| ≤ |z|³/6 for Re z ≤ 0, and the Taylor remainder of H;
-   - the minor-arc length bound;
-   - L − L₂ = log(R/(g₀M₂));
-   - t²S(t) ≥ F₁(Kt) − t.
-4. **Lemma P1.1 and F_r:** the Riemann-sum lemma |θΣf(iθ) − ∫f| ≤ θ·TV, and the closed form F_r(v) = r!(ζ(2) − Σ_j v^j/j!·Li_{2−j}(e^{−v})), which is checked against quadrature only.
-5. **Lemma B:** the derivations of B.1–B.4 (forward-mode AD box functions in ws_b_core), the T₂ lower bound, and the convex-hull mean-value step.
-6. **Lemma C0 and C1:** the error-term derivation is by hand. The θ-monotonicity is mechanized in ws_mech_mono.
-7. **Lemma D1–D3:** the distinct-parts injection, the product bound, and Ψ(s) increasing. Ψ(s) increasing is argued by hand (REFEREE A.3) and checked numerically only.
-8. **Region E and Lemma E:** both are elementary bijections.
-9. **Trust base:** Arb / python-flint 0.9.0 (ball arithmetic, polylog, zeta, gamma), sympy 1.14, gcc 13.3, and the two C finite-check programs. The C programs are independent of each other, and the exact-integer one uses no floating point.
+| # | Item | Written proof | Machine check |
+|---|---|---|---|
+| 1 | Representation (1)/(2) | PROOFS_FULL §1 | ws_close_rep R1–R4: (1) exact with rational x on 4959 (n,k,x) triples; (2) by quadrature to 1e-20 |
+| 2 | \|ψ^(r)\| ≤ κ_r, \|H^(r)\| ≤ c_r, Re H ≤ 0 | §2 (termwise series, M-test) | ws_close_rep R5 (random φ); identities at 0 in ws_mech_lemA B |
+| 3 | [ELEM] one-liners | §3 | ws_close_elem X1/X2 (sympy remainder identities), X3 (numeric) |
+| 4 | P1.1 and closed form of F_r | §4 | ws_close_elem F1/F2 (sympy telescoping + limits, r ≤ 8), F3 (Arb rigorous quadrature) |
+| 5 | Lemma B.1–B.4, T₂, hull MVT, Region II majorants | §5 | ws_close_elem B1/B4/B5 (sympy), B6 (B.1–B.4 + hull at real saddles, n = 1e5 and 1e6) |
+| 6 | Lemma C0/C1 error terms, δ_T/δ_C, CL-a N₁/N₂/N₃₄ | §6 | ws_close_elem C0a–d, C1a–b, CLa (sympy) |
+| 7 | Lemma D1–D3, **Ψ(s) increasing** | §7 | ws_close_D: **Ψ′ in exact closed form (> 0 for s > √γ)**, Arb Ψ(s_A) = 0.30456, Arb Ψ′-sweep, exact a_{k+1} > a_k at n = 1e5, 2e5 |
+| 8 | Region E | §8 | ws_close_rep E1/E2 (exact, n ≤ 400) |
+
+**Threshold audit** (PROOFS_FULL §9, ws_close_thresh.py). Every lemma's hypotheses hold for **all** n ≥ 10⁵, and D ∪ CL ∪ W ∪ CR ∪ E = [1, n−1]:
+- k_D ≥ 78;
+- μ + 2β ≤ n/2;
+- CL, W and CR lie in 2 ≤ k ≤ n−2;
+- θ_CR is decreasing and v ≥ 6.198;
+- the box covers ⊇ the certified ranges.
+
+No genuine gap was found. Side observation: (B3) is not load-bearing for unimodality (§9.3).
+
+**Remaining trust base (only):**
+- python-flint/Arb 0.9.0 (ball arithmetic, polylog, zeta, erfc, acb.integral);
+- sympy 1.14;
+- gcc 13.3 and the two independent C finite-check programs (the exact-integer one uses no floating point);
+- the classical theorems quoted in PROOFS_FULL §11: Taylor's theorem with integral remainder, the mean value theorem, the M-test,
+  additivity of total variation, and the identity theorem.
+
+mpmath appears only in sanity tests.

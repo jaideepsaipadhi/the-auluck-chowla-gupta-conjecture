@@ -131,7 +131,7 @@ Each of those arises from exactly k! compositions of N, and there are C(N−1,k�
 C(n−1,k−1)/C(N−1,k−1) = Π_{j=0}^{k−2}(n−1−j)/(n−1−j+D) with D = k(k−1)/2. That product is ≥ exp(−Σ D/(n−1−j)) ≥ exp(−(k−1)D/(n−k+1)). □
 **D3.** For n ≥ 10⁵ and 1 ≤ k ≤ 1.7n^{1/3}, Φ > 0.
 *Proof.* Φ is decreasing in k, since each term is. Put s = n^{1/3} and γ = 1.7. Then Φ(γs, s³) ≥ Ψ(s) := log((s²−γ)/(γ(γs+1))) − γ³/(2(1−γ/s²)), using k(k−1)² ≤ k³ and n−k+1 > n−k.
-Ψ is increasing in s, because 2s(γs+1) > γ(s²−γ) and the last term is decreasing. Arb gives Ψ(10^{5/3}) = 0.3046 > 0. □
+Ψ is increasing in s, because 2s(γs+1) > γ(s²−γ) and the last term is decreasing. (Exact form, PROOFS_FULL.md §7 / ws_close_D.py: Ψ′(s) = (γs²+2s+γ²)/((s²−γ)(γs+1)) + γ⁴s/(s²−γ)² > 0 for s > √γ.) Arb gives Ψ(10^{5/3}) = 0.3046 > 0. □
 For comparison, the full binomial criterion is sharper: at n = 10⁵ it holds for k ≤ 82, and at n = 10⁹ for k ≤ 2202 ≈ 2.2n^{1/3}. Its true reach is c·n^{1/3}
 with c slowly growing (√(2 log) behaviour is not attained; the k³/n term limits it). D3 already overlaps CL-a, which starts at k = 47.
 

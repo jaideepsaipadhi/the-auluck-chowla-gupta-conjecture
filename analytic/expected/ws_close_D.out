@@ -1,0 +1,8 @@
+[OK] D2a  C(n-1,k-1)/C(n-1+D,k-1) = prod_{j=0}^{k-2} (1 + D/(n-1-j))^{-1} and C(n-1,k)/C(n-1,k-1) = (n-k)/k  (k=1..12, symbolic n)  (1s)
+[OK] D2b  1+x <= e^x (derivative e^x - 1 >= 0 on x >= 0, equality at 0); (k-1) D = k(k-1)^2/2  (1s)
+[OK] D3a  dPhi/dk = -1/(n-k) - 1/k - 1/(k+1) - (k-1)[(3k-1)(n-k+1)+k(k-1)]/(2(n-k+1)^2) < 0 for real 1 <= k < n  (1s)
+[OK] D3b  Phi(gamma s, s^3) >= Psi(s): log terms equal; k(k-1)^2/(n-k+1) <= k^3/(n-k) since k^3(n-k+1)-k(k-1)^2(n-k) = k[(n-k)(2k-1)+k^2] >= 0  (1s)
+[OK] D3c  Psi'(s) = (g s^2 + 2s + g^2)/((s^2-g)(g s+1)) + g^4 s/(s^2-g)^2  (exact)  => Psi' > 0 for all s > sqrt(g): Psi is INCREASING  (1s)
+[OK] D3d  s_A = [46.41588834 +/- 3.88e-9], Psi(s_A) = [0.30456254 +/- 3.53e-9] > 0;  Arb sweep: Psi' > 0 on 540 cells covering [s_A, 1e4]; tail s > 1e4 by D3c  (1s)
+[OK] D3e  k_D(n) >= 78 for n >= 1e5; exact integers: a_{k+1} > a_k for all k <= k_D at n = 1e5 (k_D=78) and n = 2e5 (k_D=99)  (4s)
+all checks passed (4s)

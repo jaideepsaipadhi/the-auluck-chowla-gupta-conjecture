@@ -33,7 +33,9 @@ So the signs on W are + … + ? − … −, and the whole row is + … + (?) �
 Shared ingredients: parameter ranges (Lemma W/CW, `ws_mech_window`), total-variation constants of f_r
 (P1.2, `ws_mech_tv`), the minor-arc constant c_* ≥ 0.15973 (P2, `ws_mech_minor`; downstream uses 0.15926),
 the Lemma A error algebra (`ws_mech_lemA`), θ-monotonicity claims (`ws_mech_mono`) and elementary
-calculus facts (`ws_mech_elem`). Details: `notes/STATUS.md`, `notes/MECH.md`, `notes/INTERFACE.md`.
+calculus facts (`ws_mech_elem`). The `ws_close_*` scripts mechanize or test the items that were
+previously hand-proved only (`ws_close_rep`, `ws_close_D`, `ws_close_elem`; written proofs in `notes/PROOFS_FULL.md`) and audit
+all thresholds and region coverage for every n ≥ 10⁵ (`ws_close_thresh`). Details: `notes/STATUS.md`, `notes/MECH.md`, `notes/INTERFACE.md`.
 
 ## Layout
 
@@ -42,8 +44,8 @@ README.md  LICENSE  requirements.txt  run_all.sh
 finite/    ws_fc_exact.c (exact integers), ws_fc_check.c (x87 interval arithmetic, independent),
            ws_fc_ref.py (Python big-int reference), Makefile, logs/ (reference logs + SHA256SUMS)
 analytic/  proof scripts and their library modules; expected/ holds the reference outputs
-notes/     lemma documents and the internal referee report (supporting material)
-paper/     placeholder
+notes/     lemma documents, full written proofs (PROOFS_FULL.md) and the internal referee report
+paper/     the paper (acg.tex, acg.pdf)
 ```
 
 Library modules in `analytic/` (imported, not run directly): `ws_p12_common.py`, `ws_p12_eps.py`
@@ -124,13 +126,8 @@ SHA-256 (also in `finite/logs/SHA256SUMS`); the exact and interval verifiers pro
 * Arb ball arithmetic via python-flint 0.9.0 (including polylog, zeta, gamma), sympy 1.14 for exact
   symbolic identities, gcc 13.3 integer code generation, and the two independent C finite-check programs
   (one exact-integer with no floating point, one x87 directed-rounding intervals).
-* Hand-proved steps that are not machine-checked (each audited in `notes/REFEREE.md`) are listed in
-  `notes/STATUS.md`, "Not machine-checked": the generating-function representation of R_k, the uniform
-  derivative bounds, a few [ELEM] one-liners, the Riemann-sum lemma and closed form of F_r, the derivations
-  of Lemma B.1–B.4, Lemma C0/C1 error terms, Lemma D1–D3, and the elementary Region E bijection.
-
-## TODO
-
-* `ws_close_*.py` scripts (closing remaining hand-proved items) and `PROOFS_FULL.md` are being written
-  separately and are still to be added to `analytic/` and `notes/`, with expected outputs and run_all.sh entries.
-* `paper/` is a placeholder for the write-up.
+* Every step that is not itself a certified computation has a complete written proof in `notes/PROOFS_FULL.md`
+  (representation of R_k, derivative bounds, the [ELEM] one-liners, P1.1/F_r, Lemma B.1–B.4, Lemma C0/C1, Lemma D1–D3,
+  Region E), and each is backed by the `ws_close_*` checks (exact sympy identities, Arb enclosures, or exact-integer
+  instance tests). Beyond the software above, the proof uses only classical theorems: Taylor's theorem with integral
+  remainder, the mean value theorem, the Weierstrass M-test, additivity of total variation, and the identity theorem.

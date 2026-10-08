@@ -50,6 +50,12 @@ run ws_cd_D.out         ws_cd_D.py
 run ws_mech_cd.out      ws_mech_cd.py 100000
 run ws_mech_cla.out     ws_mech_cla.py 47 0.1
 run ws_mech_mono.out    ws_mech_mono.py
+# closing scripts for the formerly hand-proved items (notes/PROOFS_FULL.md)
+run ws_close_rep.out    ws_close_rep.py
+run ws_close_D.out      ws_close_D.py
+run ws_close_elem.out   ws_close_elem.py
+# threshold/hypothesis audit: reads the certified values from the outputs just produced in actual/
+run ws_close_thresh.out ws_close_thresh.py "$ACT" ../notes/FiniteCheckExact.md
 # audits (non-essential cross-checks)
 run ws_b_minorM.out     ws_b_minorM.py 0.0042 3.0
 run ws_b_check.out      ws_b_check.py 100000 1210 1358 1500

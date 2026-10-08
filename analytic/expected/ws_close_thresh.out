@@ -1,0 +1,10 @@
+[OK] Lemma W/CW (all n >= 1e5): theta <= 0.0040938927, nu' in [-2.5101979881, 2.0839963722], nu >= 3.1158184294, nu_CL <= -1.9536125352, nu_CR >= 1.0430522176, nu'_L <= -1.9066744141
+[OK] P2: theta_A <= 0.0042, nu_min >= 3.0 on W; c_* = 0.15973 >= 0.15926 (input of the Lemma A box scripts); c_*/3.5 > 0.002
+[OK] Thm A-unif: Gamma <= 0.42024 <= Gamma_max = 0.4282 on theta in (0, theta_A], nu' in [-2.52, 2.10] (covers W);  Lemma B: Sigma_min = 0.91918, step >= 0.91008 max(theta q) > 2 Gamma_max = 0.8564 (Corollary) and > Gamma_max (B-sep)
+[OK] (B3): |log M2|/theta <= 0.14215 <= 0.14236 (input to ws_b_edges); nu'_L majorant -1.9066744141 <= -1.906674 (input to ws_mech_edges); (B3) is in fact not needed for unimodality (PROOFS_FULL §9.3)
+[OK] CR (all n >= 1e5): theta <= sqrt(2 zeta2/(n-1)) <= [0.00573577 +/- 4.12e-9] (decreasing in n), v = nu'-log theta-theta >= [6.19835 +/- 4.43e-7] >= 6.198, Psi_CR = 0.33808 > 5 theta_CR, e^-nu'/(1-q)+X <= 0.385131 < 1
+[OK] CL: CL-a rho = 0.0672571 < 0.897655 (k >= 47, kθ <= 0.1, any n); CL-b margin 5.8205543259425 > 1 (k >= 79, θ <= θ_A, ν' <= ν_CL)
+[OK] cover: k_D >= 78; beta(l+2) <= n/2 - 1 for all n >= 1e5 ((l+2)e^{-l} decreasing); D ∪ CL ∪ W ∪ CR ∪ E = [1, n-1]; 2 <= k <= n-2 on CL/W/CR
+[OK] D: Phi > 0 for 1 <= k <= 1.7 n^{1/3} and all n >= 1e5 (Psi increasing: ws_close_D.out D3c/D3d)
+[OK] finite check: n <= 2*10^5 (exact-integer + interval, byte-identical logs) overlaps the analytic range n >= 10^5
+all threshold checks passed
