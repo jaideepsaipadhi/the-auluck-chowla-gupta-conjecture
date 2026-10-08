@@ -1,4 +1,4 @@
-# Unimodality of p(n,k): a computer-assisted proof of the Auluck–Chowla–Gupta conjecture
+# A proof of the Auluck–Chowla–Gupta Conjecture
 
 **Theorem.** For every n ≥ 1 the sequence p(n,1), p(n,2), …, p(n,n) is weakly unimodal,
 where p(n,k) is the number of partitions of n into exactly k parts.
