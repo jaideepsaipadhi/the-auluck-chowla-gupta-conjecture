@@ -9,6 +9,8 @@ ball arithmetic (Arb, via python-flint). The two ranges overlap.
 
 ## Proof architecture
 
+The paper `paper/acg.tex` is the primary account of the proof; `notes/` holds the working documents.
+
 Notation: β = √(6n)/π, ℓ = log β, μ = βℓ, R_k = p(n,k+1)/p(n,k), L_k = log R_k, θ the saddle point,
 q = e^{−(k+1)θ}, and L₂,k the explicit main term of `notes/LemmaA.md` §3.
 
@@ -22,11 +24,11 @@ For n ≥ 10⁵ the index range is covered by five regions, and each R_k gets it
 | CR | μ + 2β ≤ k ≤ ⌈n/2⌉ | log R_k ≤ −0.614θ | LemmaCD C-right | ws_cd_CR, ws_mech_cd |
 | E | ⌈n/2⌉ ≤ k ≤ n−1 | p(n,k+1) ≤ p(n,k) | LemmaCD §5 (p(n,k) = p(n−k)) | — (exact bijection) |
 
-Window logic (Region W):
-1. Lemma A: |L_k − L₂,k| ≤ Γ_max θq with Γ_max = 0.4282 (certified 0.42024 in Region I, 0.17605 in Region II).
-2. Lemma B (B1): L₂,k − L₂,k+1 ≥ 0.9100·max(θq) > 2Γ_max·max(θq).
-3. Lemma B (B2): |L₂,k| > Γ_max θq off the crossing pair.
-4. Lemma B (B3): L₂/θ ≥ 5.588 at the left edge of W and ≤ −0.505 at the right edge.
+Window logic (Region W; numbering as in the paper `paper/acg.tex`):
+1. Theorem A: |L_k − L₂,k| ≤ Γ_max θq with Γ_max = 0.4282 (certified 0.42024 for θ ≥ 0.002, `ws_p12_boxes`; 0.17605 for θ ≤ 0.002, `ws_p12_asym`).
+2. Theorem B: L₂,k − L₂,k+1 ≥ 0.9100·max(θq) > 2Γ_max·max(θq) (Σ ≥ 0.91918, `ws_b_step`; Σ ≥ 0.96039, `ws_b_asym`).
+3. Corollary: at most one k ∈ W has an undetermined sign, adjacent to the sign change of L₂.
+4. (Not needed for unimodality) L₂/θ ≥ 5.588 at the left edge of W and ≤ −0.505 at the right edge (`ws_b_edges`, `ws_mech_edges`).
 
 So the signs on W are + … + ? − … −, and the whole row is + … + (?) − … −, which is weakly unimodal.
 

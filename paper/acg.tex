@@ -264,7 +264,7 @@ Define
 \begin{aligned}
   N_0&:=1+\frac{\kappa_4}{8B^2}-\frac{5\kappa_3^2}{24B^3},\qquad
   E_2:=\frac1B\Bigl(1+\frac{\kappa_4}{2B^2}-\frac{5\kappa_3^2}{4B^3}\Bigr),\\
-  E_1&:=\frac1{N_0}\Bigl(\frac{\kappa_3}{2B^2}-\frac{\kappa_5}{8B^3}+\frac{105\,\kappa_3\kappa_4}{144\,B^4}-\frac{945\,\kappa_3^3}{1296\,B^5}\Bigr),\\
+  E_1&:=\frac1{N_0}\Bigl(\frac{\kappa_3}{2B^2}-\frac{\kappa_5}{8B^3}+\frac{35\,\kappa_3\kappa_4}{48\,B^4}-\frac{35\,\kappa_3^3}{48\,B^5}\Bigr),\\
   M_2&:=1+c_1E_1-\frac{(c_2+c_1^2)E_2}{2}-\frac{5c_3\kappa_3}{12B^3}+\frac{c_4}{8B^2},
 \end{aligned}
 \end{equation}
@@ -436,7 +436,7 @@ where $M_\chi:=\sup_{\varphi_0\le|\varphi|\le\pi}|\chi(\varphi)|$.
 
 \begin{proposition}[Pointwise error bound]\label{prop:eps}
 Let $E_N$ (resp.\ $E_D$) be the sum of the numerator (resp.\ denominator) bounds of Lemma~\ref{lem:central},~\eqref{eq:tails}
-and~\eqref{eq:minor}, all divided by $\sqrt{2\pi/B}$, and let $D_0^\ast=N_0=D_0/\sqrt{2\pi/B}$. Suppose $\delta_0<1$, $N_0-E_D>0$ and
+and~\eqref{eq:minor}, all divided by $\sqrt{2\pi/B}$ (recall $D_0/\sqrt{2\pi/B}=N_0$). Suppose $\delta_0<1$, $N_0-E_D>0$ and
 \[
   \Delta:=\frac{E_N+|\tilde N_0/D_0|\,E_D}{N_0-E_D}+\frac{|\mathrm{Num}|}{N_0}<M_2 .
 \]
@@ -466,13 +466,13 @@ partial sums of $\sin^2$, and no counting arguments.
 
 \begin{lemma}[Minor arcs]\label{lem:minor}
 Let $\theta_{\max}>0$, $u_{\mathrm{top}}>0$ and $c_0>0$, and suppose $\theta\le\theta_{\max}$ and $(k+1)\theta\ge u_{\mathrm{top}}$.
-Let $c_a\ge c_0$ with $c_a\theta_{\max}/2\le\pi/2$, and put $L:=2\theta_{\max}+2/\bigl(c_a\sinc(c_a\theta_{\max}/2)\bigr)$.
+Let $c_a\ge c_0$ with $c_a\theta_{\max}/2\le\pi/2$, and put $L_\ast:=2\theta_{\max}+2/\bigl(c_a\sinc(c_a\theta_{\max}/2)\bigr)$.
 \begin{enumerate}[label=(\alph*)]
 \item If $\varphi/\theta\in[c_{\mathrm{lo}},c_{\mathrm{hi}}]\subset[c_0,c_a]$, then for every $T\in(0,\pi/2]$, with $\sigma=\sin T/T$,
 \[
   \theta S(\varphi)\ \ge\ \int_{\theta_{\max}}^{\min(u_{\mathrm{top}},\,2T/c_{\mathrm{hi}})}\log\bigl(1+\sigma^2c_{\mathrm{lo}}^2f_2(u)\bigr)\dd u .
 \]
-\item If $c_a\theta\le\varphi\le\pi$, then $\theta S(\varphi)\ge\int_{L}^{u_{\mathrm{top}}}\log\coth(u/2)\dd u$ (to be read as $0$ if $L\ge u_{\mathrm{top}}$).
+\item If $c_a\theta\le\varphi\le\pi$, then $\theta S(\varphi)\ge\int_{L_\ast}^{u_{\mathrm{top}}}\log\coth(u/2)\dd u$ (to be read as $0$ if $L_\ast\ge u_{\mathrm{top}}$).
 \end{enumerate}
 Consequently $\log|\chi(\varphi)|\le-\Psi/(2\theta)$ for $c_0\theta\le|\varphi|\le\pi$, where $\Psi$ is the minimum of the right-hand
 sides over a cover of $[c_0,c_a]$ by cells and of (b).
@@ -494,15 +494,15 @@ identity
 \begin{equation}\label{eq:dirichlet}
   G_I=\frac I2-\frac{\sin(Id)\cos((I+1)d)}{2\sin d}
 \end{equation}
-gives $G_I\ge I/2-1/(2\sin d)$, and since also $G_I\ge0$ we get $G_I\ge\frac12(I-N_0)_+$ with $N_0:=\lceil1/\sin d\rceil$.
+gives $G_I\ge I/2-1/(2\sin d)$, and since also $G_I\ge0$ we get $G_I\ge\frac12(I-N_d)_+$ with $N_d:=\lceil1/\sin d\rceil$.
 By Abel summation, with $w_{k+1}:=0$ and $w_I-w_{I+1}\ge0$,
 \[
-  S\ \ge\ \sum_{i\le k}\sin^2(id)w_i=\sum_{I\le k}G_I(w_I-w_{I+1})\ \ge\ \tfrac12\sum_{I\le k}(I-N_0)_+(w_I-w_{I+1})=\tfrac12\sum_{N_0<i\le k}w_i .
+  S\ \ge\ \sum_{i\le k}\sin^2(id)w_i=\sum_{I\le k}G_I(w_I-w_{I+1})\ \ge\ \tfrac12\sum_{I\le k}(I-N_d)_+(w_I-w_{I+1})=\tfrac12\sum_{N_d<i\le k}w_i .
 \]
 As $w$ is decreasing, $w_i\ge\theta^{-1}\int_{i\theta}^{(i+1)\theta}2\log\coth(u/2)\dd u$, so
-$\theta S\ge\int_{(N_0+1)\theta}^{(k+1)\theta}\log\coth(u/2)\dd u$. Finally $(N_0+1)\theta\le2\theta+\theta/\sin d$, and since $\sin$ is
+$\theta S\ge\int_{(N_d+1)\theta}^{(k+1)\theta}\log\coth(u/2)\dd u$. Finally $(N_d+1)\theta\le2\theta+\theta/\sin d$, and since $\sin$ is
 increasing on $[0,\pi/2]$ and $\sinc$ is decreasing, $\sin d\ge\sin(c_a\theta/2)\ge(c_a\theta/2)\sinc(c_a\theta_{\max}/2)$. Hence
-$(N_0+1)\theta\le L$ and $(k+1)\theta\ge u_{\mathrm{top}}$.
+$(N_d+1)\theta\le L_\ast$ and $(k+1)\theta\ge u_{\mathrm{top}}$.
 \end{proof}
 
 \begin{corollary}\label{cor:cstar}
@@ -511,9 +511,10 @@ $c_\ast=0.15973$.
 \end{corollary}
 
 \begin{proof}
-Apply Lemma~\ref{lem:minor} with $\theta_{\max}=0.0042$, $u_{\mathrm{top}}=3$, $c_0=0.4$ and $c_a=1.331$; then $L\le1.5105$. All integrals
-are right Riemann sums of decreasing integrands, hence rigorous lower bounds, evaluated in ball arithmetic: (a) gives
-$\theta S\ge0.31946$ on $400$ geometric cells of $[0.4,1.331]$ (best of $41$ values of $T$ per cell), and (b) gives
+Apply Lemma~\ref{lem:minor} with $\theta_{\max}=0.0042$, $u_{\mathrm{top}}=3$, $c_0=0.4$ and $c_a=0.4\cdot150^{96/400}=1.33144\ldots$;
+then $L_\ast\le1.5105$. All integrals are right Riemann sums of decreasing integrands, hence rigorous lower bounds, evaluated in
+ball arithmetic: (a) gives $\theta S\ge0.31946$ on the $96$ geometric cells of ratio $150^{1/400}$ covering $[0.4,c_a]$ (best of
+$41$ values of $T$ per cell), and (b) gives
 $\theta S\ge0.34433$. So $\Psi\ge0.31946$ and $c_\ast=\Psi/2\ge0.15973$ (Table~\ref{tab:certs}, C3).
 \end{proof}
 
@@ -627,7 +628,7 @@ Corollary~\ref{cor:cstar} applies. Since $\theta q=\theta^2e^{-\nu'}$, it suffic
 \emph{Region I: $0.002\le\theta\le\theta_A$.} We cover $\theta$ by geometric cells of ratio $1.01$ and $\nu'$ by cells of width $0.01$
 (clipped to $\nu\ge3.1158$). On each box we evaluate $\varepsilon$ of Proposition~\ref{prop:eps} in ball arithmetic, with $s_r$ ranging over
 the enclosure of Corollary~\ref{cor:sr} for every $(\theta,\nu')$ in the box, $f_r(\nu)$ and $c_1$ exact, and
-$M_\chi\le e^{-0.15926/\theta}$; the code asserts $\delta_0<1$, $N_0-E_D>0$ and $\Delta<M_2$ on every box, and divides by
+$M_\chi\le e^{-0.15926/\theta}$ (a rounded-down value, valid since $0.15926\le c_\ast$); the code asserts $\delta_0<1$, $N_0-E_D>0$ and $\Delta<M_2$ on every box, and divides by
 $\min\theta^2e^{-\nu'}$ over the box. The maximum is $\Gamma\le0.42024$, attained near $\nu'=2.1$ (Table~\ref{tab:certs}, A1).
 
 \emph{Region II: $\theta\le0.002$.} Here no box cover is possible, and we use a monotone majorant in $t=\sqrt\theta$. After dividing by
@@ -637,8 +638,8 @@ $e^{-\nu}\le e^{-\nu_{\min}}$. At fixed $\nu'$ we have $\nu=\nu'+2\log(1/t)$ and
 \[
   \frac{d}{dt}\bigl[t^P\nu^j\bigr]=t^{P-1}\nu^{j-1}(P\nu-2j),
 \]
-which is nonnegative when $P>0$ and $\nu\ge2j/P$ (and trivially when $j<0$). The program asserts $P>0$ and $\nu_{\min}>2j/P$ for every
-monomial and evaluates the majorant at $\theta=0.002$. The Gaussian-tail and minor-arc factors $e^{-0.04b/\theta}\theta^{-2}$ and
+which is nonnegative when $P>0$ and $\nu\ge2j/P$ (and trivially when $j<0$). The program asserts, for every
+monomial, either $P=j=0$ (a constant term) or $P>0$ and $\nu_{\min}>2j/P$, and evaluates the majorant at $\theta=0.002$. The Gaussian-tail and minor-arc factors $e^{-0.04b/\theta}\theta^{-2}$ and
 $e^{-c_\ast/\theta}\theta^{-3.5}$ are increasing on the relevant range because $\theta<0.02b$ and $\theta<c_\ast/3.5$, which is asserted. The
 result is $\Gamma\le0.17605$ for all $\theta\le0.002$ and $\nu'\in[-2.52,2.10]$ (Table~\ref{tab:certs}, A2). The details of the majorant
 are in Appendix~\ref{app:regionII}. \qed
@@ -669,7 +670,7 @@ We shall see that $\theta'>\theta$, so the first term is positive and $q'=e^{-(K
 \[
   \log\frac{1-q'}{1-q}\ \ge\ T_2:=\log\Bigl(1+\frac{q(1-e^{-\theta})}{1-q}\Bigr),
 \]
-which is $\theta q(1+O(\theta+q))$, and the step is at least $T_2-|\Delta\log M_2|$. The work is to bound $\Delta\log M_2$, for which we
+which is $\theta q(1+O(\theta+q))$, and the step is at least $T_2-|\log M_2'-\log M_2|$. The work is to bound $\log M_2'-\log M_2$, for which we
 need to control how $(\theta,\nu,b,s_3,s_4,s_5)$ moves from $k$ to $k+1$.
 
 \subsection{Localising the next saddle point}
@@ -708,23 +709,23 @@ $\mathcal H$ (Corollary~\ref{cor:sr} and Lemma~\ref{lem:B1}), and $\mathcal H$ i
 encloses $\nabla M_2$ on $\mathcal H$ by forward-mode automatic differentiation in ball arithmetic, so by the mean value theorem along the
 segment
 \[
-  |\Delta\log M_2|\le\sum_j\sup_{\mathcal H}\Bigl|\frac{\partial_jM_2}{M_2}\Bigr|\,|\Delta v_j|,
+  |\log M_2'-\log M_2|\le\sum_j\sup_{\mathcal H}\Bigl|\frac{\partial_jM_2}{M_2}\Bigr|\,|v_j'-v_j|,
 \]
-with $|\Delta v_j|$ bounded by Lemma~\ref{lem:B1}. Together with $T_2/(\theta q)$ evaluated on the box this gives
+where $v=(\theta,\nu,b,s_3,s_4,s_5)$ and $v'$ is the same vector at $k+1$, with $|v_j'-v_j|$ bounded by Lemma~\ref{lem:B1}. Together with $T_2/(\theta q)$ evaluated on the box this gives
 $\Sigma:=(\text{step})/(\theta q)\ge0.91918$ on every box (Table~\ref{tab:certs}, B1).
 
 \emph{Region II ($\theta\le0.002$).} The same graded-monomial method as in Section~\ref{sec:proofA} applies. At both points every
 quantity is majorised by nonnegative combinations of $t^pq^{b_q}\nu^j$, using $\theta'^e\le(1+\tau)^e\theta^e$ ($e>0$), $q'\le q$,
 $\nu_{k+1}\le\rho\nu$ with an explicit $\rho$, $f_r(u)\le(\rho\nu)^rqP_{r-1}(y)/(1-y)^r$ ($y=e^{-\nu_{\min}}$, $P_{r-1}$ the Eulerian
 polynomial), and $|h'(u)|\le(u+1)e^{-u}/(1-e^{-u})^2$ for $c_1=1+h(\nu)/\theta$, $h(u)=u/(e^u-1)$. Products and quotients are
-handled by $|\Delta(xy)|\le|\Delta x|\sup|y|+\sup|x|\,|\Delta y|$ and $|\Delta(1/N)|\le|\Delta N|/N_{\min}^2$, and the main term by
+handled by $|x'y'-xy|\le|x'-x|\sup|y|+\sup|x|\,|y'-y|$ and $|1/N'-1/N|\le|N'-N|/N_{\min}^2$ (primes denoting values at $k+1$), and the main term by
 $T_2/(\theta q)\ge(1-\theta/2)\bigl(1-\theta q/(2(1-q))\bigr)$. The result is $\Sigma\ge0.96039$ for all $\theta\le0.002$ and
 $\nu'\in[-2.52,2.10]$, and also $|\log M_2|/\theta\le0.14215$ (Table~\ref{tab:certs}, B2).
 
 Finally $\theta'q'\le1.01\,\theta q$ because $\theta'\le1.01\theta$ and $q'<q$, and $0.91918/1.01>0.9100>0.8564=2\Gamma_{\max}$. \qed
 
 \subsection{Consequences in the window}
-Let $k^\ast$ be the largest $k\in W$ with $L_{2,k}>0$, if one exists (so $L_{2,k^\ast+1}\le0$ if $k^\ast+1\in W$). Call $k\in W$
+Let $k^\ast$ be the largest $k\in W$ with $L_{2,k}>0$, and $k^\ast:=\min(W\cap\ZZ)-1$ if there is no such $k$ (so $L_{2,k}\le0$ for every $k\in W$ with $k>k^\ast$). Call $k\in W$
 \emph{undetermined} if $|L_{2,k}|\le\varepsilon_k$. If $k$ is not undetermined then $\operatorname{sign}L_k=\operatorname{sign}L_{2,k}$
 by Theorem~\ref{thm:A}.
 
@@ -838,7 +839,7 @@ Let $n\ge10^5$ and $\mu+2\beta\le k\le\lceil n/2\rceil$. Then $\log R_k\le-0.614
 \begin{proof}
 Since $m\ge n-\lceil n/2\rceil\ge(n-1)/2$ and $\theta^2m\le\zeta_2$, $\theta\le\theta_{CR}:=\sqrt{2\zeta_2/(n-1)}\le0.0057358$. By~\eqref{eq:CWconst},
 $\nu'\ge\nu_{CR}=1.04305$, so $v=\nu'-\log\theta-\theta\ge1.04305+\log(1/\theta_{CR})-\theta_{CR}\ge6.198$; both bounds improve with $n$.
-Lemma~\ref{lem:minor} with $u_{\mathrm{top}}=6.198$ gives $\Psi=0.33808>5\theta_{CR}$, and Lemma~\ref{lem:C1} on the single cell
+Lemma~\ref{lem:minor} with $\theta_{\max}=\theta_{CR}$ and $u_{\mathrm{top}}=6.198$ gives $\Psi=0.33808>5\theta_{CR}$ (\script{ws\_mech\_cd}), and Lemma~\ref{lem:C1} on the single cell
 $[6.198,\infty)$ (where only $F_r(\infty)=r!\zeta_2$ is used) gives $X\le0.0321$. By~\eqref{eq:C0cons}, with $q/\theta=e^{-\nu'}$ and $q\le e^{-v}$,
 \[
   \log R_k\le\theta\Bigl(\frac{e^{-\nu'}}{1-q}+X-1\Bigr)\le\theta(0.3852-1).
@@ -848,7 +849,7 @@ $[6.198,\infty)$ (where only $F_r(\infty)=r!\zeta_2$ is used) gives $X\le0.0321$
 
 \subsection{The left tail CL}
 \begin{proposition}[CL-a]\label{prop:CLa}
-For every $n$, if $k\ge47$ and $k\theta\le0.1$, then $R_k>1$.
+For every $n$, if $47\le k\le n-2$ and $k\theta\le0.1$, then $R_k>1$.
 \end{proposition}
 
 \begin{proof}
@@ -888,8 +889,8 @@ Let $n\ge10^5$ and $k_D<k\le\mu-2\beta$ with $k\theta\ge0.1$. Then $R_k>1$.
 \end{proposition}
 
 \begin{proof}
-Here $k\ge79$, $\theta\le\theta_A$ and $\nu'\le\nu_{CL}=-1.95361$ by~\eqref{eq:CWconst}. Cover $v=k\theta\in[0.1,\infty)$ by $33$ geometric
-cells $[v_1,v_2]$ of ratio $1.15$ and a final cell $[8.76,\infty)$. On each cell $\theta\le\bar\theta:=\min(\theta_A,v_2/78)$; let
+Here $k\ge79$, $\theta\le\theta_A$ and $\nu'\le\nu_{CL}=-1.95361$ by~\eqref{eq:CWconst}. Cover $v=k\theta\in[0.1,\infty)$ by the $32$ geometric
+cells $[v_1,v_2]$ of ratio $1.15$ starting at $0.1$ and the final cell $[0.1\cdot1.15^{32},\infty)=[8.7565\ldots,\infty)$. On each cell $\theta\le\bar\theta:=\min(\theta_A,v_2/78)$; let
 $X$ be the constant of Lemma~\ref{lem:C1}. By~\eqref{eq:C0cons}, $\log R_k\ge-\theta+q-\theta X/(1-\theta X)$, which is positive as soon as
 $q/\theta>1+X/(1-\bar\theta X)$. For $q/\theta$ we use the larger of $e^{-\nu'}\ge e^{1.95361}$ and $e^{-(v_2+\bar\theta)}/\bar\theta$. Every
 cell passes, with minimum ratio $5.82$ (Table~\ref{tab:certs}, R3).
@@ -1036,7 +1037,8 @@ SymPy.
 \subsection{List of certified statements}
 Table~\ref{tab:certs} lists every computer-assisted statement used in the proof, the program that certifies it (in the directory
 \texttt{analytic/} or \texttt{finite/} of the repository), and the certified value. The driver script \texttt{run\_all.sh} runs all
-of them and compares each output with a stored reference; on a two-core machine the analytic part takes about five minutes and the
+the analytic programs and the exact finite check (to $2\cdot10^5$ with the option \texttt{--full}) and compares each output with a
+stored reference; the interval program F2 is run separately (see the repository README); on a two-core machine the analytic part takes about five minutes and the
 exact finite check to $2\cdot10^5$ about eight minutes.
 
 {\small
@@ -1082,7 +1084,7 @@ The proof relies on: the correctness of Arb's ball arithmetic as exposed by pyth
 error-function and integration routines); SymPy 1.14 for exact symbolic identities; the GCC 13.3 compiler for the integer code of the finite
 check (cross-checked by the independent interval program and, for $n\le2000$, by Python big integers); and the following classical results,
 which are quoted rather than proved: Taylor's theorem with integral remainder, the mean value theorem, the Weierstrass M-test for termwise
-differentiation, additivity of total variation, and the identity theorem for entire functions. All other steps are proved in this paper.
+differentiation, and additivity of total variation. All other steps are proved in this paper.
 
 %======================================================================
 \appendix
@@ -1099,16 +1101,16 @@ Let $Q_{\mathrm{abs}}=1+a_3t^3+a_4t^4+a_5t^5+\frac12a_3^2t^6+a_3a_4t^7+\frac16a_
 $P_{\mathrm{abs}}=C_1t+\frac12(C_2+C_1^2)t^2+\frac16C_3t^3+\frac1{24}C_4t^4$. Then
 \[
 \begin{aligned}
-E_N&=\mathcal I_{B'}[C_1t\,T_\omega]+\mathcal I_1[Q_{\mathrm{abs}}T_H]+\sqrt2\,e^{-w_0^2/4}\,\mathcal I_{1/2}[Q_{\mathrm{abs}}P_{\mathrm{abs}}]+2\mathfrak m,\\
-E_D&=\mathcal I_{B'}[T_\omega]+\sqrt2\,e^{-w_0^2/4}\,\mathcal I_{1/2}[Q_{\mathrm{abs}}]+\mathfrak m,
+E_N&=\mathcal I_{B'}[C_1t\,T_\omega]+\mathcal I_1[Q_{\mathrm{abs}}T_H]+e^{-w_0^2/4}\,\mathcal I_{1/2}[Q_{\mathrm{abs}}P_{\mathrm{abs}}]+2\mathfrak m,\\
+E_D&=\mathcal I_{B'}[T_\omega]+e^{-w_0^2/4}\,\mathcal I_{1/2}[Q_{\mathrm{abs}}]+\mathfrak m,
 \end{aligned}
 \]
 where $T_\omega,T_H$ are as in Section~\ref{sec:main} with $(\kappa_r,c_r)\to(A_r,C_r)$, and
 \[
   \mathfrak m:=2\pi\,e^{-c_\ast/\theta}\Bigl(\frac{b}{2\pi\theta^3}\Bigr)^{1/2}
 \]
-is the minor-arc term $2\pi M_\chi/\sqrt{2\pi/B}$ with Corollary~\ref{cor:cstar}. (The factor $\mathcal I_{B'}$ includes the normalisation
-$\sqrt{1/B'}$ relative to $\mathcal I_1$, and the factor $\sqrt2$ converts the $B/2$ normalisation of the tails.) With $N_0$, $M_2$ and
+is the minor-arc term $2\pi M_\chi/\sqrt{2\pi/B}$ with Corollary~\ref{cor:cstar}. (Since $\mathcal I_A$ integrates against $e^{-Aw^2/2}$, the central-arc terms carry the factor $B'^{-1/2}$ and the tail terms the
+factor $\sqrt2$ automatically; the code evaluates $\mathcal I_A[P]=A^{-1/2}\,\E P(|Z_A|)$ with $Z_A\sim N(0,1/A)$.) With $N_0$, $M_2$ and
 $\mathrm{Num}$ in scaled form,
 \[
   \Delta=\frac{E_N+|\tilde N_0/D_0|E_D}{N_0-E_D}+\frac{|\mathrm{Num}|}{N_0},\qquad \varepsilon_k=-\log(1-\Delta/M_2).
@@ -1134,7 +1136,7 @@ explicitly signed terms of $M_2$ and $N_0$, which are bounded below termwise (fo
 is a nonnegative coefficient times $t^p\,q^{b_q}\,\nu^j$. After division by $\theta q=t^2q$ the monomial becomes
 $t^P\nu^je^{-(b_q-1)\nu'}$, and at fixed $\nu'$, $\nu=\nu'+2\log(1/t)$. By the identity in Section~\ref{sec:proofA}, $t\mapsto t^P\nu^j$ is
 nondecreasing on $(0,t_1]$ when $P>0$ and $\nu_{\min}>2j/P$ (for $j<0$ it is increasing whenever $P>0$). The program asserts these two
-conditions for every monomial, evaluates each at $t=t_1$ with $\nu$ at the appropriate end ($\nu\le v_0'+\log(1/\theta_1)$ if $j\ge0$,
+conditions for every non-constant monomial, evaluates each at $t=t_1$ with $\nu$ at the appropriate end ($\nu\le v_0'+\log(1/\theta_1)$ if $j\ge0$,
 $\nu\ge\nu_{\min}$ if $j<0$), and bounds $e^{-(b_q-1)\nu'}$ at the appropriate end of the cell. The non-polynomial factors
 $e^{-w_0^2/4}=e^{-0.04b/\theta}$ and $e^{-c_\ast/\theta}$ are handled by
 $\frac{d}{d\theta}\log(\theta^{-p}e^{-a/\theta})=(a-p\theta)/\theta^2$, which is positive for $\theta<a/p$. The same method, applied to
@@ -1151,12 +1153,10 @@ S.~Auluck, S.~Chowla and H.~Gupta, On the maximum value of the number of partiti
 \bibitem{Andrews}
 G.~E.~Andrews, \emph{The Theory of Partitions}, Encyclopedia of Mathematics and its Applications, Vol.~2, Addison-Wesley, Reading, MA, 1976.
 
-% VERIFY: page numbers.
 \bibitem{Can97}
 E.~R.~Canfield, From recursions to asymptotics: on Szekeres' formula for the number of partitions,
 \emph{Electron. J. Combin.} \textbf{4}(2) (1997), \#R6.
 
-% VERIFY: title and pages.
 \bibitem{Erdos46}
 P.~Erd\H{o}s, On some asymptotic formulas in the theory of partitions, \emph{Bull. Amer. Math. Soc.} \textbf{52} (1946), 185--188.
 

@@ -10,6 +10,7 @@ N=100000; QUICK=0
 for a in "$@"; do case "$a" in
   --quick) QUICK=1;; --full) N=200000;; *) echo "unknown option $a"; exit 64;; esac; done
 PY="${PYTHON:-python3}"
+unset PYTHONOPTIMIZE   # the certificates rely on live assert statements
 FAIL=0
 norm() { # strip timing information: "time 12.3s" lines and "(12s)" / "(12.3s)" tokens
   sed -E -e '/^time [0-9.]+s$/d' -e 's/\(([0-9]+(\.[0-9]+)?)s\)/(Ts)/g' "$1"; }
