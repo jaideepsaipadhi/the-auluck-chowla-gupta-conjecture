@@ -2,6 +2,8 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23241759.svg)](https://doi.org/10.5281/zenodo.23241759)
 
+**Preprint:** [doi:10.5281/zenodo.23241794](https://doi.org/10.5281/zenodo.23241794) · **Code archive:** [doi:10.5281/zenodo.23241759](https://doi.org/10.5281/zenodo.23241759)
+
 **Theorem.** For every n ≥ 1 the sequence p(n,1), p(n,2), …, p(n,n) is weakly unimodal,
 where p(n,k) is the number of partitions of n into exactly k parts.
 

@@ -8,3 +8,11 @@ authors:
 license: MIT
 repository-code: "https://github.com/jaideepsaipadhi/the-auluck-chowla-gupta-conjecture"
 keywords: [integer partitions, unimodality, computer-assisted proof]
+doi: "10.5281/zenodo.23241794"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23241794"
+    description: "Preprint"
+  - type: doi
+    value: "10.5281/zenodo.23241759"
+    description: "Code archive"
