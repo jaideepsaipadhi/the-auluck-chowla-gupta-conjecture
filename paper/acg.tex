@@ -73,13 +73,24 @@ $a_1\le\dots\le a_t\ge a_{t+1}\ge\dots\ge a_N$.
 For every integer $n\ge1$ the sequence $p(n,1),p(n,2),\dots,p(n,n)$ is unimodal.
 \end{maintheorem}
 
+\noindent In fact we prove the strict form, in the shape of Szekeres' theorem, for every $n$
+(Theorem~\ref{thm:strict} in Section~\ref{sec:finite}): for $n\ge4$ there is $t$ with
+\[
+  p(n,1)<\dots<p(n,t)\ \ge\ p(n,t+1)>p(n,t+2)>\dots>p(n,n-1)=p(n,n),
+\]
+and $p(n,t)=p(n,t+1)$ only for $n\in\{5,6,8,13,14\}$.
+
+
 \subsection*{History}
-The statement was conjectured by Auluck, Chowla and Gupta~\cite{ACG42}. Erd\H{o}s~\cite{Erdos46}, who studied the distribution of
-the number of parts of a random partition (see also Erd\H{o}s--Lehner~\cite{EL41}), wrote that he could neither prove nor disprove
-it. Szekeres~\cite{Sz51,Sz53} obtained an asymptotic formula for $p(n,k)$ uniform in $k$ and deduced the conjecture for all
-$n$ larger than some $N_0$; the argument does not give a value of $N_0$ (see also~\cite{Sz90}). Canfield~\cite{Can97} later
-gave a different derivation of Szekeres' formula, by recursions rather than by contour integration. To our knowledge no proof
-for all $n$ has appeared before. % VERIFY: wording of the Szekeres/Canfield attribution against the original papers.
+The statement was conjectured by Auluck, Chowla and Gupta~\cite{ACG42}, who also showed that the mode $k_0(n)$ satisfies
+$n^{1/2}<k_0\le(1+\delta)c^{-1}n^{1/2}\log n$ for large $n$, where $c=\pi\sqrt{2/3}$. Erd\H{o}s~\cite{Erdos46} determined $k_0$ up to $o(n^{1/2})$
+(see also Erd\H{o}s--Lehner~\cite{EL41}) and wrote that he was unable to prove or disprove the unimodality conjecture.
+Szekeres~\cite{Sz51,Sz53} obtained an asymptotic formula for $p(n,k)$ uniform in $k$, and in~\cite[Theorem~2]{Sz53} proved that
+\emph{if $n$ is sufficiently large} there is $k_1(n)$ with $p(n,k)<p(n,k+1)$ for $k<k_1$ and $p(n,k)>p(n,k+1)$ for $k>k_1$, remarking
+that this proves the conjecture of Auluck, Chowla and Gupta. His constants are not made explicit, so the argument gives no value of
+$n$ beyond which it applies (see also~\cite{Sz90}). Canfield~\cite{Can97} later gave a different derivation of Szekeres' formula, by
+recursions rather than by contour integration. As recently as 2015, Chubarikov and Fedorov~\cite{CF15} describe the monotonicity
+conjecture of Auluck, Chowla and Gupta as unsolved. To our knowledge no proof for all $n$ has appeared before.
 
 \subsection*{Why first differences}
 Unimodality would follow from log-concavity, $p(n,k)^2\ge p(n,k-1)p(n,k+1)$, but this fails at the tail of every row with
@@ -1019,6 +1030,24 @@ $k=2042$ for $n=2\cdot10^5$.
 
 Since $2\cdot10^5>10^5$, Sections~\ref{sec:assembly} and~\ref{sec:finite} together prove the Main Theorem for every $n\ge1$.
 
+\begin{theorem}[Strict form]\label{thm:strict}
+For every $n\ge4$ there is an index $t=t(n)$ with
+$p(n,1)<\dots<p(n,t)$, $p(n,t)\ge p(n,t+1)$, $p(n,t+1)>p(n,t+2)>\dots>p(n,n-1)$ and $p(n,n-1)=p(n,n)=1$.
+Moreover $p(n,t)=p(n,t+1)$ exactly for $n\in\{5,6,8,13,14\}$.
+\end{theorem}
+
+\begin{proof}
+For $n\le2\cdot10^5$ both programs classify every pair $(p(n,k),p(n,k+1))$ with $k\le\lceil n/2\rceil$ as increasing, decreasing or tied.
+They report exactly $8$ ties, and a direct computation for $n\le200$ locates all eight:
+\[
+(n,k)=(2,1),\ (3,1),\ (3,2),\ (5,2),\ (6,2),\ (8,3),\ (13,4),\ (14,4),
+\]
+each between the two largest terms of its row. Lemma~\ref{lem:E}
+gives strict decrease for $\lceil n/2\rceil\le k\le n-2$. For $n\ge10^5$, every comparison is strict in Regions $D$, $CL$ and $CR$
+(Section~\ref{sec:CLCR}) and on $W$ outside the at most one undetermined index of Corollary~\ref{cor:onek}; that index lies at
+the sign change, so a tie can only occur between the two largest terms. Region $E$ is handled by Lemma~\ref{lem:E}.
+\end{proof}
+
 %======================================================================
 \section{The computer-assisted parts}\label{sec:computer}
 %======================================================================
@@ -1144,7 +1173,6 @@ the increments of Lemma~\ref{lem:B1} at the two points $k$ and $k+1$, gives Regi
 %======================================================================
 \begin{thebibliography}{99}
 
-% VERIFY: volume/pages of the 1942 paper (J. Indian Math. Soc. (N.S.) 6 (1942)); title as cited in later literature.
 \bibitem{ACG42}
 F.~C.~Auluck, S.~Chowla and H.~Gupta, On the maximum value of the number of partitions of $n$ into $k$ parts,
 \emph{J. Indian Math. Soc. (N.S.)} \textbf{6} (1942), 105--112.
@@ -1156,10 +1184,13 @@ G.~E.~Andrews, \emph{The Theory of Partitions}, Encyclopedia of Mathematics and 
 E.~R.~Canfield, From recursions to asymptotics: on Szekeres' formula for the number of partitions,
 \emph{Electron. J. Combin.} \textbf{4}(2) (1997), \#R6.
 
+\bibitem{CF15}
+V.~N.~Chubarikov and G.~V.~Fedorov, Multiplicative and additive problems of partitions of natural numbers, in:
+\emph{Continuous and Distributed Systems II}, Stud. Syst. Decis. Control \textbf{30}, Springer, Cham, 2015, pp.~29--36.
+
 \bibitem{Erdos46}
 P.~Erd\H{o}s, On some asymptotic formulas in the theory of partitions, \emph{Bull. Amer. Math. Soc.} \textbf{52} (1946), 185--188.
 
-% VERIFY: volume and pages.
 \bibitem{EL41}
 P.~Erd\H{o}s and J.~Lehner, The distribution of the number of summands in the partitions of a positive integer,
 \emph{Duke Math. J.} \textbf{8} (1941), 335--345.
@@ -1168,11 +1199,9 @@ P.~Erd\H{o}s and J.~Lehner, The distribution of the number of summands in the pa
 F.~Johansson, Arb: efficient arbitrary-precision midpoint-radius interval arithmetic,
 \emph{IEEE Trans. Comput.} \textbf{66} (2017), 1281--1292. % VERIFY: page range
 
-% VERIFY: title and pages.
 \bibitem{Sz51}
 G.~Szekeres, An asymptotic formula in the theory of partitions, \emph{Quart. J. Math. Oxford Ser. (2)} \textbf{2} (1951), 85--108.
 
-% VERIFY: title and pages.
 \bibitem{Sz53}
 G.~Szekeres, Some asymptotic formulae in the theory of partitions.~II, \emph{Quart. J. Math. Oxford Ser. (2)} \textbf{4} (1953), 96--111.
 
