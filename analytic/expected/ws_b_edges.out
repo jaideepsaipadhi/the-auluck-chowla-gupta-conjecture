@@ -1,0 +1,5 @@
+nu'_L <= -1.9066749223866784   nu'_R >= 1.0430550305740744
+Region II: left L2/theta >= [5.5883 +/- 1.16e-5]   right L2/theta <= [-0.50501 +/- 4.98e-6]
+Region I: min L2/theta on nu' in [-2.52, VL] = 5.62096887138614
+Region I: max L2/theta on nu' in [VR, 2.10] = -0.6425806366114557
+B3 edges: OK

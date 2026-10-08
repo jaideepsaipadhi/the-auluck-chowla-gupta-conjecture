@@ -1,0 +1,4 @@
+s_A = [46.415888 +/- 3.37e-7]   Psi(s_A) = [0.304563 +/- 4.57e-7]
+n=100000: binomial criterion holds for k <= 82  (gamma n^(1/3) = 78.9)
+n=1000000: binomial criterion holds for k <= 189  (gamma n^(1/3) = 170.0)
+n=1000000000: binomial criterion holds for k <= 2202  (gamma n^(1/3) = 1700.0)

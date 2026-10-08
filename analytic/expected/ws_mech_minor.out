@@ -1,0 +1,5 @@
+theta <= 0.0042, (k+1)theta >= 3.0, phi in [0.4 theta, pi]
+  regime (a), c in [0.4, 1.331]:  theta*S >= 0.31946
+  regime (D), phi in [1.331 theta, pi] (L = 1.5105):  theta*S >= 0.34433
+  PSI = 0.31946   =>  c_* = PSI/2 >= 0.15973
+time 41.8s

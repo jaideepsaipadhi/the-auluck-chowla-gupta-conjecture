@@ -1,0 +1,13 @@
+  [r=1 done at 0s]
+TV_1 <= 1.000000   (true value enclosed in [1.0000000 +/- 1.5e-12];  project constant 1.062650: OK, project >= new)
+  [r=2 done at 0s]
+TV_2 <= 1.000000   (true value enclosed in [1.0000000 +/- 3.4e-12];  project constant 1.705253: OK, project >= new)
+  [r=3 done at 0s]
+TV_3 <= 2.000000   (true value enclosed in [2.0000000 +/- 2.7e-11];  project constant 7.708993: OK, project >= new)
+  [r=4 done at 1s]
+TV_4 <= 6.086764   (true value enclosed in [6.0867644 +/- 4.02e-8];  project constant 51.518986: OK, project >= new)
+  [r=5 done at 1s]
+TV_5 <= 25.691942   (true value enclosed in [25.691942 +/- 1.74e-7];  project constant 236.048: OK, project >= new)
+  [r=6 done at 1s]
+TV_6 <= 138.424982   (true value enclosed in [138.42498 +/- 2.41e-6];  project constant 1626.90: OK, project >= new)
+time 1.1s

@@ -1,0 +1,5 @@
+ws_fc_exact
+ws_fc_check
+__pycache__/
+analytic/actual/
+finite/out/

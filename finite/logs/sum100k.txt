@@ -1,0 +1,1 @@
+N=100000 pairs: +85086401 -2414963590 08 ?0 ; float-certified violations: 0

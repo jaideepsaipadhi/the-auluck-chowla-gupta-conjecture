@@ -1,0 +1,16 @@
+(M1) Lemma C1 ingredient monotonicity (sympy):
+   T1/th   nondecreasing in th:  numerator coeffs >= 0: True, denominator > 0: True
+   T2/th   nondecreasing in th:  numerator coeffs >= 0: True, denominator > 0: True
+   A3      nondecreasing in th:  numerator coeffs >= 0: True, denominator > 0: True
+   deltaT  nondecreasing in th:  numerator coeffs >= 0: True, denominator > 0: True
+   w0^2    nonincreasing in th:  numerator coeffs >= 0: True, denominator > 0: True
+   M (p=3/2), M/th (p=5/2): d log/dth = (Psi/2 - p th)/th^2 > 0 for th < Psi/5 (asserted 'psi > 5 th' in X_cell)
+   erfc(w0/sqrt2) increasing in th (erfc decreasing, w0 nonincreasing); delta = min(deltaT, deltaC): deltaC th-free;
+   s3 = min(F3+th TV3, v2 sup f3), blo = max(F2(v1)-th, v1 f2(v2)): min/max of monotone pieces with the same direction.
+   => numerator of rho/th nondecreasing and >= 0, denominator nonincreasing; den(th_bar) > 0 asserted => rho/th <= value at th_bar.  OK
+(M2) d/dth[th^2 nu] = th(2nu-1) > 0 since nu >= nu_min > 3 (asserted 'nmin > 3' in ws_b_asym.setup); 1/(1-q) increasing.  OK
+(M3) re-running the graded-monomial scripts with live monotonicity assertions:
+    ws_p12_asym.py 0.002 -2.52 2.10 0.15926 0.05 -> Region II (theta <= 0.002): Gamma <= 0.17605 over nu' in [-2.52,2.1]
+    ws_b_asym.py 0.002 -2.52 2.10 0.05 -> Region II (theta <= 0.002): Sigma >= 0.96039;  sup |log M2|/theta <= 0.14215
+   (0.5s)  every monomial passed 'P > 0 and nu_min > 2j/P' (E7) and the tail asserts (E12).
+ALL MONOTONICITY CLAIMS VERIFIED

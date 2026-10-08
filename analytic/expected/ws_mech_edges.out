@@ -1,0 +1,7 @@
+[printed majorant] nu'_L <= -1.906674, nu'_R >= 1.043052
+  Region II: left L2/theta >= [5.5883 +/- 5.34e-6], right L2/theta <= [-0.50501 +/- 3.91e-6]
+  Region I : left min L2/theta = 5.62096, right max L2/theta = -0.64258
+[sharp expression] nu'_L <= -1.94915, nu'_R >= 1.043052
+  Region II: left L2/theta >= [5.8804 +/- 4.43e-5], right L2/theta <= [-0.50501 +/- 3.91e-6]
+  Region I : left min L2/theta = 5.91110, right max L2/theta = -0.64258
+B3 edges: OK for all n >= 10^5 (edge constants certified in ws_mech_window.out)

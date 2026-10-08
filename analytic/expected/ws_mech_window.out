@@ -1,0 +1,19 @@
+beta_A = [246.5617776 +/- 2.47e-8], l_A = [5.5076126 +/- 1.88e-8], C = 5.00; sweep l in [l_A, 60] (5486 adaptive boxes) + tail [60, inf)
+claim                          value at beta_A          worst certified box bound
+  G          >= 0             [1.045884404 +/- 1.48e-10] 1.0092273417   CERTIFIED for all n >= N_A
+  thA        <= 0.0040939     [0.004093866913 +/- 4.12e-13] 0.0040938927   CERTIFIED for all n >= N_A
+  nuhi       <= 2.0840        [2.083945915 +/- 1.85e-10] 2.0839963722   CERTIFIED for all n >= N_A
+  VL         <= -1.9067       [-1.949524632 +/- 1.97e-11] -1.9491583462   CERTIFIED for all n >= N_A
+  VLprinted  <= -1.906674     [-1.906674922 +/- 3.87e-10] -1.9066744141   CERTIFIED for all n >= N_A
+  nuCL       <= -1.95361      [-1.953618499 +/- 6.71e-11] -1.9536125352   CERTIFIED for all n >= N_A
+  nulo       >= -2.5102       [-2.510191816 +/- 1.75e-10] -2.5101979881   CERTIFIED for all n >= N_A
+  numin      >= 3.1158        [3.115853336 +/- 1.45e-11] 3.1158184294   CERTIFIED for all n >= N_A
+  nuCR       >= 1.04305       [1.043055031 +/- 4.26e-10] 1.0430522176   CERTIFIED for all n >= N_A
+time 0.2s
+  sanity n=100000 k=865: theta*beta=0.955370 in [(1-delta)=0.88831, r=1.00939],  nu'=-2.19772
+  sanity n=100000 k=1851: theta*beta=1.007394 in [(1-delta)=0.88831, r=1.00939],  nu'=+2.06660
+  sanity n=1000000 k=3633: theta*beta=0.984048 in [(1-delta)=0.95730, r=1.00339],  nu'=-2.08855
+  sanity n=1000000 k=6751: theta*beta=1.002696 in [(1-delta)=0.95730, r=1.00339],  nu'=+2.02691
+  sanity n=10000000 k=14326: theta*beta=0.994239 in [(1-delta)=0.98416, r=1.00121],  nu'=-2.03873
+  sanity n=10000000 k=24188: theta*beta=1.000971 in [(1-delta)=0.98416, r=1.00121],  nu'=+2.01082
+  T(v) <= (v+1)e^{-v}/(1-e^{-v}) spot-checked (proof: Li1(y), Li2(y) <= y/(1-y) termwise)

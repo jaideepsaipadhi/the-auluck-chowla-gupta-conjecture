@@ -1,0 +1,4 @@
+(a) min over c in [0.4,30] of theta*S >= 0.31853 (at c ~ 0.400)
+(M) theta*S >= 1.05774 (alpha=0.525)
+(b) theta*S >= 0.40772
+c_* = min/2 >= 0.15927   [valid for theta <= 0.0042, nu >= 3.0]
